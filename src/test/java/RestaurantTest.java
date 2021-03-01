@@ -72,4 +72,20 @@ class RestaurantTest {
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+    @Test
+    public void get_order_value_on_select_items_from_menu_should_be_non_zero(){
+        Restaurant restaurant = createRestaurant();
+        String[] items = {"Sweet corn soup"};
+        int orderValue = restaurant.getOrderValue(items);
+        assertEquals(119, orderValue);
+        assertNotEquals(0, orderValue);
+    }
+
+    @Test
+    public void get_order_value_on_no_items_selected_from_menu_should_be_zero(){
+        Restaurant restaurant = createRestaurant();
+        String[] items = {};
+        int orderValue = restaurant.getOrderValue(items);
+        assertEquals(0, orderValue);
+    }
 }
